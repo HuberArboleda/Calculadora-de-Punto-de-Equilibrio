@@ -83,6 +83,16 @@ function calcular() {
                     borderWidth: 2,
                     borderDash: [5, 5],
                     fill: false
+                },
+                {
+                    label: 'Punto de Equilibrio',
+                    data: [{ x: puntoEquilibrioUnidades, y: costoFijo + (costoVariable * puntoEquilibrioUnidades) }],
+                    borderColor: 'black',
+                    borderWidth: 2,
+                    pointRadius: 10,
+                    pointBackgroundColor: 'black',
+                    fill: false,
+                    showLine: false
                 }
             ]
         },
