@@ -13,17 +13,16 @@
     <form id="equilibrioForm">
         <div class="form-group">
             <label for="ingreso">Ingreso por unidad:</label>
-            <input type="number" id="ingreso" placeholder="Ingrese el ingreso por unidad" required>
+            <input type="number" id="ingreso" placeholder="Ingrese el ingreso por unidad" required oninput="calcular()">
         </div>
         <div class="form-group">
             <label for="costos_variables">Costos variables por unidad:</label>
-            <input type="number" id="costos_variables" placeholder="Ingrese los costos variables" required>
+            <input type="number" id="costos_variables" placeholder="Ingrese los costos variables" required oninput="calcular()">
         </div>
         <div class="form-group">
             <label for="costos_fijos">Costos fijos totales:</label>
-            <input type="number" id="costos_fijos" placeholder="Ingrese los costos fijos" required>
+            <input type="number" id="costos_fijos" placeholder="Ingrese los costos fijos" required oninput="calcular()">
         </div>
-        <button type="button" onclick="calcular()">Calcular</button>
     </form>
 
     <div class="resultado" id="resultado"></div>

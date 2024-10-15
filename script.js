@@ -6,17 +6,22 @@ function calcular() {
     const costoFijo = parseFloat(document.getElementById('costos_fijos').value);
     // ... otros valores
 
-    // Validar los datos
-    if (isNaN(ingreso) || ingreso <= 0) {
-        alert('Por favor, ingrese un valor numérico positivo para el ingreso por unidad.');
+    // Verificar si todos los campos tienen valores válidos
+    if (isNaN(ingreso) || isNaN(costoVariable) || isNaN(costoFijo)) {
+        document.getElementById('resultado').textContent = ''; // Limpiar el resultado si hay entradas inválidas
         return;
     }
-    if (isNaN(costoVariable) || costoVariable <= 0) {
-        alert('Por favor, ingrese un valor numérico positivo para los costos variables por unidad.');
+
+    if (ingreso <= 0) {
+        document.getElementById('resultado').textContent = 'Por favor, ingrese un ingreso positivo.'; // Mensaje en lugar de alerta
         return;
     }
-    if (isNaN(costoFijo) || costoFijo < 0) {
-        alert('Por favor, ingrese un valor numérico positivo para los costos fijos totales.');
+    if (costoVariable <= 0) {
+        document.getElementById('resultado').textContent = 'Por favor, ingrese un costo variable positivo.'; // Mensaje en lugar de alerta
+        return;
+    }
+    if (costoFijo < 0) {
+        document.getElementById('resultado').textContent = 'Por favor, ingrese un costo fijo no negativo.'; // Mensaje en lugar de alerta
         return;
     }
     // ... otras validaciones
