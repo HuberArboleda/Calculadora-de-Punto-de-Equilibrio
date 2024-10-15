@@ -1,19 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Punto de Equilibrio</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <h1>Calculadora de Punto de Equilibrio</h1>
-    <div class="form-group">
-        <label for="ingreso">Ingreso por unidad:</label>
-        <input type="number" id="ingreso" placeholder="Ingrese el ingreso por unidad">
+    
+    <form id="equilibrioForm">
+        <div class="form-group">
+            <label for="ingreso">Ingreso por unidad:</label>
+            <input type="number" id="ingreso" placeholder="Ingrese el ingreso por unidad" required>
+        </div>
+        <div class="form-group">
+            <label for="costos_variables">Costos variables por unidad:</label>
+            <input type="number" id="costos_variables" placeholder="Ingrese los costos variables" required>
+        </div>
+        <div class="form-group">
+            <label for="costos_fijos">Costos fijos totales:</label>
+            <input type="number" id="costos_fijos" placeholder="Ingrese los costos fijos" required>
+        </div>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+
+    <div class="resultado" id="resultado"></div>
+
+    <div>
+        <canvas id="myChart"></canvas>
     </div>
-    <button onclick="calcular()">Calcular</button>
-    <div id="resultado"></div>
-    <canvas id="myChart"></canvas>
+
     <script src="script.js"></script>
 </body>
 </html>
