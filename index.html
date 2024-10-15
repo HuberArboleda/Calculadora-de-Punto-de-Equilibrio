@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Punto de Equilibrio</title>
+    <link rel="stylesheet" href="cosmo.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
 </head>
+
 <body>
-    <h1>Calculadora de Punto de Equilibrio</h1>
-    <div class="form-group">
-        <label for="ingreso">Ingreso por unidad:</label>
-        <input type="number" id="ingreso" placeholder="Ingrese el ingreso por unidad">
+    <div class="container" style="margin:20px auto;width:calc(100% - 10%); max-width: calc(100% - 30%);">
+        <div class="row no-gutters justify-content-center">
+            <div class="card text-center">
+                <h1 style="margin-top:20px">Calculadora de Punto de Equilibrio</h1>
+                <div class="form-group">
+                    <div class="calcform">
+                        <label for="ingreso">Ingreso por unidad</label>
+                        <input class="form-control calcform" min="0" type="number" id="ingreso" placeholder="Valor" required>
+                    </div>
+                    <div class="calcform">
+                        <label for="ingreso">Costos variables por unidad</label>
+                        <input class="form-control calcform" min="0" type="number" id="ingreso" placeholder="Valor" required>
+                    </div>
+                    <div class="calcform">
+                        <label for="ingreso">Costos fijos por unidad</label>
+                        <input class="form-control calcform" min="0" type="number" id="ingreso" placeholder="Valor" required>
+                    </div>                    
+                    <button class="btn btn-primary" style="margin-top:15px" onclick="calcular()">Calcular</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <button onclick="calcular()">Calcular</button>
     <div id="resultado"></div>
     <canvas id="myChart"></canvas>
-    <script src="script.js"></script>
 </body>
+
 </html>
