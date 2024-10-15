@@ -1,19 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Punto de Equilibrio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Calculadora de Punto de Equilibrio</h1>
-    <div class="form-group">
-        <label for="ingreso">Ingreso por unidad:</label>
-        <input type="number" id="ingreso" placeholder="Ingrese el ingreso por unidad">
+    <div class="container">
+        <div class="form-container">
+            <h1>Calculadora de Punto de Equilibrio</h1>
+            <div class="input-group">
+                <label for="unitPrice">Ingreso por unidad</label>
+                <input type="number" id="unitPrice" placeholder="$ 900" step="0.01" min="0">
+            </div>
+            <div class="input-group">
+                <label for="variableCost">Costos variables por unidad</label>
+                <input type="number" id="variableCost" placeholder="$ 450" step="0.01" min="0">
+            </div>
+            <div class="input-group">
+                <label for="fixedCosts">Costos fijos totales</label>
+                <input type="number" id="fixedCosts" placeholder="$ 200.000" step="0.01" min="0">
+            </div>
+        </div>
+        <div class="result-chart-container">
+            <div class="result">
+                <h2>Resultados del Punto de Equilibrio</h2>
+                <div class="result-item">
+                    <span class="result-label">Unidades necesarias:</span>
+                    <span id="breakEvenUnits" class="result-value"></span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Ingresos necesarios:</span>
+                    <span id="breakEvenRevenue" class="result-value"></span>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="breakEvenChart"></canvas>
+            </div>
+        </div>
     </div>
-    <button onclick="calcular()">Calcular</button>
-    <div id="resultado"></div>
-    <canvas id="myChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
