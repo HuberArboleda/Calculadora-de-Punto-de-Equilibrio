@@ -44,9 +44,8 @@ function calcular() {
             // Mostrar el resultado
             document.getElementById('res-card').className = 'card text-center border-warning'
             document.getElementById('resultado').textContent = `El punto de equilibrio es de ${puntoEquilibrioUnidades.toFixed(2)} unidades o $${puntoEquilibrioValor.toFixed(2)}`;
-            // Dynamically update the chart after every 2 seconds
 
-            //Creating a array with 5 random value 
+            //Se crean 2 arrays con los datos para cada linea del gráfico
             let updatedData1 = [0,(ingreso * puntoEquilibrioUnidades),ingreso*puntoEquilibrioUnidades*2];
             let updatedData2 = [(costoFijo + costoVariable * 0),(costoFijo + costoVariable * puntoEquilibrioUnidades),(costoFijo + costoVariable * puntoEquilibrioUnidades*2)];
             //Actualizar valores de las lineas
