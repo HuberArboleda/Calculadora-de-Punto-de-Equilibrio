@@ -17,3 +17,8 @@ Funcionalidades a implementar:
 ---
 
 ![Captura de pantalla 2024-10-15 165908](https://github.com/user-attachments/assets/e3f22bde-2439-4717-a6b8-303b7c9d8755)
+
+---
+Boceto inicial
+![Boceto](https://github.com/user-attachments/assets/f8e87c07-f84e-4650-befa-4e8923cf996d)
+
