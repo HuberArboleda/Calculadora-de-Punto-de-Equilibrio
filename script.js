@@ -1,4 +1,3 @@
-
 const unitPriceInput = document.getElementById('unitPrice');
 const variableCostInput = document.getElementById('variableCost');
 const fixedCostsInput = document.getElementById('fixedCosts');
@@ -93,5 +92,25 @@ function updateChart(breakEvenUnits, unitPrice, variableCost, fixedCosts) {
         });
     }
 }
+
+const modal = document.getElementById("infoModal");
+const btn = document.querySelector(".info");
+const span = document.querySelector(".close");
+
+modal.style.display = "none";
+
+btn.addEventListener('click', function() {
+    modal.style.display = "flex";
+});
+
+span.addEventListener('click', function() {
+    modal.style.display = "none";
+});
+
+window.addEventListener('click', function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+});
 
 calculateBreakEven();
