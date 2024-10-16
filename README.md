@@ -12,11 +12,11 @@ Funcionalidades a implementar:
 
 ✅ **Gráfico visual:** Representar gráficamente el punto de equilibrio, utilizando una librería como Chart.js o D3.js. Esto ayudará al usuario a visualizar de forma más clara el concepto.
 
-🔳 **Diseño responsivo:** Asegurar que la aplicación se adapte correctamente a diferentes tamaños de pantalla.
+✅ **Diseño responsivo:** Asegurar que la aplicación se adapte correctamente a diferentes tamaños de pantalla.
 
 ---
 
-![Captura de pantalla 2024-10-15 165908](https://github.com/user-attachments/assets/e3f22bde-2439-4717-a6b8-303b7c9d8755)
+![image](https://github.com/user-attachments/assets/154b492f-9c2a-47ea-82a5-a3a3fb08297d)
 
 ---
 Boceto inicial
