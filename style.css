@@ -32,11 +32,13 @@ li {
 }
 
 footer {
-    margin-top: 100px;
-    margin-left: 900px;
+    bottom: 60px;
+    right: 190px;
     font-size: 0.9rem;
     color: #969696;
+    transition: all 0.3s ease;
 }
+
 
 .container {
     background-color: white;
@@ -232,5 +234,13 @@ canvas {
     .form-container {
         margin-right: 0;
         margin-bottom: 20px;
+    }
+
+    .info {
+        width: 100%;
+    }
+
+    footer {
+        display: none;
     }
 }
