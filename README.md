@@ -16,7 +16,11 @@ Funcionalidades a implementar:
 
 ---
 
-![image](https://github.com/user-attachments/assets/154b492f-9c2a-47ea-82a5-a3a3fb08297d)
+![image](https://github.com/user-attachments/assets/556eafdf-daf6-40d8-b6fb-bba7f18bedeb)
+
+![image](https://github.com/user-attachments/assets/074c0e5a-079f-4eac-9e9e-63b0f300b9cc)
+
+
 
 ---
 Boceto inicial
