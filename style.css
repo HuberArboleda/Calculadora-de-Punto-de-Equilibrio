@@ -32,6 +32,7 @@ li {
 }
 
 footer {
+    position: fixed;
     bottom: 60px;
     right: 190px;
     font-size: 0.9rem;
