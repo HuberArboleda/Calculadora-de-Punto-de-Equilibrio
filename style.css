@@ -2,6 +2,8 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    background-color: rgb(1, 143, 238);
+
 }
 .form-group {
     margin-bottom: 10px;

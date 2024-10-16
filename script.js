@@ -1,4 +1,5 @@
 // script.js
+let myChart;
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("ingreso").focus();
@@ -22,6 +23,44 @@ document.addEventListener("DOMContentLoaded", function () {
   ingresoInput.addEventListener("input", actualizarCalculos);
   materialesInput.addEventListener("input", actualizarCalculos);
   costoFijoInput.addEventListener("input", actualizarCalculos);
+
+  
+
+    function crearGrafico(cantidadMensual, valorMensual, cantidadDiaria, valorDiario) {
+        const ctx = document.getElementById('myChart').getContext('2d');
+        
+        if (myChart) {
+            myChart.destroy();
+        }
+
+        myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Cantidad Mensual', 'Valor Mensual', 'Cantidad Diaria', 'Valor Diario'],
+                datasets: [{
+                    label: 'Datos para punto de equilibrio',
+                    data: [cantidadMensual, valorMensual, cantidadDiaria, valorDiario],
+                    backgroundColor: [
+                        'yellow',  
+                        'blue',    
+                        'red',     
+                        'green'   
+                    ],
+                    borderColor: [
+                        'rgba(255, 255, 255, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
 
   function actualizarCalculos() {
     const ingreso = parseFloat(ingresoInput.value) || 0;
@@ -55,6 +94,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("valorDiario").textContent = isFinite(valorDiario)
       ? valorDiario.toFixed(2)
       : "N/A";
+
+      crearGrafico(cantidadMensual, valorMensual, cantidadDiaria, valorDiario);
   }
 });
 
@@ -75,14 +116,24 @@ function validarInput(input, errorId) {
 }
 
 function LimpiarForm() {
-  document.getElementById("ingreso").value = "";
-  document.getElementById("materiales").value = "";
-  document.getElementById("costoFijo").value = "";
-
-  document.getElementById("ingresoError").textContent = "";
-  document.getElementById("ingresoError").classList.add("hidden");
-  document.getElementById("materialesError").textContent = "";
-  document.getElementById("materialesError").classList.add("hidden");
-  document.getElementById("costoFijoError").textContent = "";
-  document.getElementById("costoFijoError").classList.add("hidden");
+    
+    document.getElementById("ingreso").value = "";
+    document.getElementById("materiales").value = "";
+    document.getElementById("costoFijo").value = "";
+    
+    document.getElementById("ingresoError").textContent = "";
+    document.getElementById("ingresoError").classList.add("hidden");
+    document.getElementById("materialesError").textContent = "";
+    document.getElementById("materialesError").classList.add("hidden");
+    document.getElementById("costoFijoError").textContent = "";
+    document.getElementById("costoFijoError").classList.add("hidden");
+    
+    document.getElementById("cantidadMensual").textContent = "0";
+    document.getElementById("valorMensual").textContent = "0";
+    document.getElementById("cantidadDiaria").textContent = "0";
+    document.getElementById("valorDiario").textContent = "0";
+    
+    if (myChart) {
+      myChart.destroy();
+    }
 }
