@@ -14,6 +14,48 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("costoFijo").addEventListener("input", function () {
     validarInput(this, "costoFijoError");
   });
+
+  const ingresoInput = document.getElementById("ingreso");
+  const materialesInput = document.getElementById("materiales");
+  const costoFijoInput = document.getElementById("costoFijo");
+
+  ingresoInput.addEventListener("input", actualizarCalculos);
+  materialesInput.addEventListener("input", actualizarCalculos);
+  costoFijoInput.addEventListener("input", actualizarCalculos);
+
+  function actualizarCalculos() {
+    const ingreso = parseFloat(ingresoInput.value) || 0;
+    const costoMateriales = parseFloat(materialesInput.value) || 0;
+    const costoFijo = parseFloat(costoFijoInput.value) || 0;
+
+    let cantidadMensual = 0;
+    if (ingreso - costoMateriales > 0) {
+      cantidadMensual = costoFijo / (ingreso - costoMateriales);
+    }
+
+    const valorMensual = cantidadMensual * ingreso;
+
+    const cantidadDiaria = cantidadMensual / 30;
+
+    const valorDiario = cantidadDiaria * ingreso;
+
+    document.getElementById("cantidadMensual").textContent = isFinite(
+      cantidadMensual
+    )
+      ? cantidadMensual.toFixed(2)
+      : "N/A";
+    document.getElementById("valorMensual").textContent = isFinite(valorMensual)
+      ? valorMensual.toFixed(2)
+      : "N/A";
+    document.getElementById("cantidadDiaria").textContent = isFinite(
+      cantidadDiaria
+    )
+      ? cantidadDiaria.toFixed(2)
+      : "N/A";
+    document.getElementById("valorDiario").textContent = isFinite(valorDiario)
+      ? valorDiario.toFixed(2)
+      : "N/A";
+  }
 });
 
 function validarInput(input, errorId) {
@@ -32,51 +74,15 @@ function validarInput(input, errorId) {
   }
 }
 
-function calcular() {
-  // Obtener los valores de los campos del formulario
-  const ingreso = parseFloat(document.getElementById("ingreso").value);
-  // ... otros valores
-
-  // Validar los datos
-  if (isNaN(ingreso) || ingreso <= 0) {
-    alert(
-      "Por favor, ingrese un valor numérico positivo para el ingreso por unidad."
-    );
-    return;
-  }
-  // ... otras validaciones
-
-  // Calcular el punto de equilibrio
-  const costoVariable = 0;
-  const costoFijo = 0;
-  const puntoEquilibrioUnidades = costoFijo / (ingreso - costoVariable);
-  const puntoEquilibrioValor = puntoEquilibrioUnidades * ingreso;
-  const puntoEquilibrioUnidadesDia = puntoEquilibrioUnidades / 30;
-  const puntoEquilibrioValorDia = puntoEquilibrioUnidadesDia * ingreso;
-
-  // Mostrar el resultado
-  document.getElementById(
-    "resultado"
-  ).textContent = `El punto de equilibrio es de ${puntoEquilibrioUnidades.toFixed(
-    2
-  )} unidades o $${puntoEquilibrioValor.toFixed(2)}`;
-
-  // Crear el gráfico
-  const ctx = document.getElementById("myChart").getContext("2d");
-  const myChart = new Chart(ctx, {
-    // Configuración del gráfico
-  });
-}
-
 function LimpiarForm() {
   document.getElementById("ingreso").value = "";
   document.getElementById("materiales").value = "";
   document.getElementById("costoFijo").value = "";
 
-  document.getElementById('ingresoError').textContent = '';
-  document.getElementById('ingresoError').classList.add('hidden');
-  document.getElementById('materialesError').textContent = '';
-  document.getElementById('materialesError').classList.add('hidden');
-  document.getElementById('costoFijoError').textContent = '';
-  document.getElementById('costoFijoError').classList.add('hidden');
+  document.getElementById("ingresoError").textContent = "";
+  document.getElementById("ingresoError").classList.add("hidden");
+  document.getElementById("materialesError").textContent = "";
+  document.getElementById("materialesError").classList.add("hidden");
+  document.getElementById("costoFijoError").textContent = "";
+  document.getElementById("costoFijoError").classList.add("hidden");
 }

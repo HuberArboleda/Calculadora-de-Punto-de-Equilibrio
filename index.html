@@ -10,10 +10,10 @@
     />
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js"></script>   
   </head>
   <body class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class="bg-white shadow-lg rounded-lg p-6 w-80">
+    <div class="bg-white shadow-lg rounded-lg p-6 w-80 mr-20">
         <h1 class="text-2xl text-center font-bold mb-4">Formulario de Costos</h1>
 
         <form id="costForm">
@@ -52,8 +52,24 @@
                 Limpiar
             </button>
         </form>
-    </div> 
-    <div id="resultado"></div>
+    </div>
+
+    <div class="bg-white shadow-lg rounded-lg p-6 w-80 mr-40">
+        <h2 class="text-2xl text-center font-bold mb-4">Resultados calculados</h2>
+        
+        <label for="cantidadMensual" class="block mb-2">Cantidad mensual:</label>
+        <p id="cantidadMensual" class="text-lg text-gray-900 mb-4">0</p>
+        
+        <label for="valorMensual" class="block mb-2">Valor mensual:</label>
+        <p id="valorMensual" class="text-lg text-gray-900 mb-4">0</p>
+        
+        <label for="cantidadDiaria" class="block mb-2">Cantidad diaria:</label>
+        <p id="cantidadDiaria" class="text-lg text-gray-900 mb-4">0</p>
+        
+        <label for="valorDiario" class="block mb-2">Valor diario:</label>
+        <p id="valorDiario" class="text-lg text-gray-900">0</p>
+    </div>
+
     <canvas id="myChart"></canvas>
   </body>
 </html>
