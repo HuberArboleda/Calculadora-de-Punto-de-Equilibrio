@@ -6,7 +6,7 @@ Funcionalidades a implementar:
 
 ✅ **Formulario intuitivo:** Diseñar un formulario que solicite los datos necesarios al usuario (ingresos por unidad, costos variables por unidad, costos fijos totales) de manera clara y concisa.
 
-🔳 **Validación de datos:** Implementar una validación para asegurar que los datos ingresados sean numéricos y positivos.
+✅ **Validación de datos:** Implementar una validación para asegurar que los datos ingresados sean numéricos y positivos.
 
 ✅ **Cálculo:** Mostrar el resultado del cálculo del punto de equilibrio (en unidades y en valor monetario) De prefernencia si es en tiempo real a medida que el usuario ingresa los datos.
 
