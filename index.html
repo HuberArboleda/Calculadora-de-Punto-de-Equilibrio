@@ -8,34 +8,85 @@
     <link rel="stylesheet" href="cosmo.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script>
     <script src="script.js"></script>
 </head>
 
-<body>
-    <div class="container" style="margin:20px auto;width:calc(100% - 10%); max-width: calc(100% - 30%);">
-        <div class="row no-gutters justify-content-center">
-            <div class="card text-center">
-                <h1 style="margin-top:20px">Calculadora de Punto de Equilibrio</h1>
-                <div class="form-group">
-                    <div class="calcform">
-                        <label for="ingreso">Ingreso por unidad</label>
-                        <input class="form-control calcform" min="0" type="number" id="ingreso" placeholder="Valor" required>
+<body onload="calcular()">
+    <div class="content-wrapper container-fluid" style="margin:20px auto;width:calc(100% - 10%); max-width: calc(100% - 30%);">
+        <div class="row no-gutters justify-content-center ">
+            <div class="row no-gutters justify-content-center">
+                <div class="card text-center bg-warning">
+                    <h1 class="text-light" style="margin-top:15px;margin-bottom: 10px;">Calculadora de Punto de
+                        Equilibrio</h1>
+                    <div class="form-group bg-light">
+                        <div class="calcform">
+                            <label for="ingreso">Ingreso por unidad</label>
+                            <input class="form-control calcform" min="0" type="number" id="ingreso" placeholder="Valor"
+                                required>
+                            <div class="text-danger" id="err-ingreso"
+                                style="margin-top:5px;margin-left:10px;margin-right: 10px;"></div>
+                        </div>
+                        <div class="calcform">
+                            <label for="ingreso">Costos variables por unidad</label>
+                            <input class="form-control calcform" min="0" type="number" id="variable" placeholder="Valor"
+                                required>
+                            <div class="text-danger" id="err-variable"
+                                style="margin-top:5px;margin-left:10px;margin-right: 10px;"></div>
+                        </div>
+                        <div class="calcform" style="margin-bottom: 20px;">
+                            <label for="ingreso">Costos fijos por unidad</label>
+                            <input class="form-control calcform" min="0" type="number" id="fijo" placeholder="Valor"
+                                required>
+                            <div class="text-danger" id="err-fijo"
+                                style="margin-top:5px;margin-left:10px;margin-right: 10px;"></div>
+                        </div>
                     </div>
-                    <div class="calcform">
-                        <label for="ingreso">Costos variables por unidad</label>
-                        <input class="form-control calcform" min="0" type="number" id="ingreso" placeholder="Valor" required>
-                    </div>
-                    <div class="calcform">
-                        <label for="ingreso">Costos fijos por unidad</label>
-                        <input class="form-control calcform" min="0" type="number" id="ingreso" placeholder="Valor" required>
-                    </div>                    
-                    <button class="btn btn-primary" style="margin-top:15px" onclick="calcular()">Calcular</button>
+                </div>
+                <div id="res-card" style="margin-bottom: 10px; margin-top:10px">
+                    <h4 class="bg-light" id="resultado" style="margin-top:7px"></h4>
                 </div>
             </div>
         </div>
+
+        <canvas id="myChart" width="100%" height="50%"></canvas>
+
     </div>
-    <div id="resultado"></div>
-    <canvas id="myChart"></canvas>
 </body>
+
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['', '# Unidades', 'Ventas'],
+            datasets: [{
+                label: 'Ingresos',
+                data: [0, 0, 0],
+                fill: false,
+                borderColor: 'rgb(75, 75, 255)',
+                tension: 0.5
+            }, {
+                label: 'Costos totales',
+                data: [0, 0, 0],
+                fill: false,
+                borderColor: 'rgb(255, 75, 75)',
+                tension: 0.5
+            }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: "Gráfico - Punto de Equilibrio"
+                }
+            }
+        }
+
+    });
+</script>
 
 </html>
