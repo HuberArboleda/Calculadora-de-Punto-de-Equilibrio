@@ -28,3 +28,9 @@ function calcular() {
         // Configuración del gráfico
     });
 }
+
+function LimpiarForm() {
+    document.getElementById('ingreso').value = '';
+    document.getElementById('materiales').value = '';
+    document.getElementById('costoFijo').value = '';
+}
