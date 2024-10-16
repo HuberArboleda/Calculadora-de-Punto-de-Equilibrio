@@ -6,3 +6,15 @@ body {
 .form-group {
     margin-bottom: 10px;
 }
+div.calcform{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top:10px;
+}
+div.calcform label       { text-align:right; margin-top:5px}
+div.calcform label:after { content: ":"; }
+input.calcform{
+    margin-left:20%;
+    margin-right: 20%;
+}
