@@ -1,0 +1,207 @@
+/* style.css */
+
+/* Variables de colores para modo claro y oscuro */
+:root {
+    --primary-color: #007BFF;
+    --primary-hover: #0056b3;
+    --background-color: #f4f4f4;
+    --container-bg: white;
+    --text-color: #333;
+    --input-bg: #fff;
+    --border-color: #ccc;
+    --resultado-bg: #f0f8ff;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    --primary-color: #0091ff;
+    --primary-hover: #007acc;
+    --background-color: #1a1a1a;
+    --container-bg: #333;
+    --text-color: #eaeaea;
+    --input-bg: #444;
+    --border-color: #555;
+    --resultado-bg: #002b53;
+}
+
+/* Estilo global */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: var(--container-bg);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+/* Grupos de formularios */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Etiquetas */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Campos de entrada */
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efecto hover y foco en los campos de entrada */
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #eef8ff;
+}
+
+/* Ajustes para inputs en modo oscuro */
+body.dark-mode input[type="number"] {
+    background-color: var(--input-bg); /* Ya está definido como #444 */
+    color: #eaeaea; /* Cambia el color del texto a un tono claro */
+    border: 1px solid var(--border-color); /* Ya está definido como #555 */
+}
+
+body.dark-mode input[type="number"]:focus {
+    background-color: #333; /* Un poco más oscuro cuando el campo está enfocado */
+    border-color: var(--primary-color); /* Color del borde al enfocarse */
+    color: #eaeaea; /* Mantiene el texto claro */
+}
+
+/* Botón de envío */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Efecto hover en el botón */
+button:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.02);
+}
+
+/* Resultado del cálculo */
+.resultado {
+    margin-top: 20px;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: center;
+    padding: 15px;
+    border: 3px solid var(--primary-color);
+    border-radius: 12px;
+    background-color: var(--resultado-bg);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Contenedor del gráfico */
+.chart-container {
+    margin-top: 40px;
+}
+
+/* Media Queries para dispositivos más pequeños */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .resultado {
+        font-size: 1.4em;
+    }
+}
+
+/* Media Queries para pantallas más grandes */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 900px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .resultado {
+        font-size: 1.8em;
+    }
+}
+
+/* Botón para cambiar a modo oscuro */
+.dark-mode-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover en el botón */
+.dark-mode-toggle:hover {
+    background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilo para el icono */
+.dark-mode-toggle i {
+    font-size: 1.5rem;
+}
+
+
