@@ -84,6 +84,19 @@ input[type="number"]:focus {
     background-color: #eef8ff;
 }
 
+/* Ajustes para inputs en modo oscuro */
+body.dark-mode input[type="number"] {
+    background-color: var(--input-bg); /* Ya está definido como #444 */
+    color: #eaeaea; /* Cambia el color del texto a un tono claro */
+    border: 1px solid var(--border-color); /* Ya está definido como #555 */
+}
+
+body.dark-mode input[type="number"]:focus {
+    background-color: #333; /* Un poco más oscuro cuando el campo está enfocado */
+    border-color: var(--primary-color); /* Color del borde al enfocarse */
+    color: #eaeaea; /* Mantiene el texto claro */
+}
+
 /* Botón de envío */
 button {
     width: 100%;
