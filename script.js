@@ -12,10 +12,12 @@ function calcular() {
     // ... otras validaciones
 
     // Calcular el punto de equilibrio
-    const costoVariable = ...;
-    const costoFijo = ...;
+    const costoVariable = 0;
+    const costoFijo = 0;
     const puntoEquilibrioUnidades = costoFijo / (ingreso - costoVariable);
     const puntoEquilibrioValor = puntoEquilibrioUnidades * ingreso;
+    const puntoEquilibrioUnidadesDia = puntoEquilibrioUnidades / 30;
+    const puntoEquilibrioValorDia = puntoEquilibrioUnidadesDia * ingreso;
 
     // Mostrar el resultado
     document.getElementById('resultado').textContent = `El punto de equilibrio es de ${puntoEquilibrioUnidades.toFixed(2)} unidades o $${puntoEquilibrioValor.toFixed(2)}`;
