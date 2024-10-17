@@ -1,58 +1,58 @@
-# Calculadora de Punto de Equilibrio
+# Break-Even Calculator
 
-![Captura de la pagina web](public/image.png)
+[Español](README/README-es.md)
+
+![Screenshot of the webpage](public/image.png)
 ---
 
-Este proyecto es una **calculadora de punto de equilibrio** que permite calcular el punto de equilibrio de un producto en función de su costo de venta, costo de producción y costo fijo.
+This project is a **break-even calculator** that allows users to calculate the break-even point of a product based on its selling price, production cost, and fixed costs.
 
-## Descripción
+## Description
 
-La **calculadora de punto de equilibrio** es una herramienta que ayuda a los empresarios o emprendedores a determinar cuántas unidades deben vender para cubrir sus costos fijos. A partir de tres valores ingresados:
+The **break-even calculator** is a tool that helps business owners or entrepreneurs determine how many units they need to sell in order to cover their fixed costs. Based on three input values:
 
-1. **Precio de venta por unidad**: El precio al que se vende el producto.
-2. **Costo de producción por unidad**: El costo de producir una unidad del producto.
-3. **Costo fijo**: Los costos fijos que no dependen de la cantidad producida, como renta, sueldos, etc.
+1. **Selling price per unit**: The price at which the product is sold.
+2. **Production cost per unit**: The cost to produce one unit of the product.
+3. **Fixed cost**: The fixed costs that don't depend on the quantity produced, such as rent, salaries, etc.
 
+The calculator shows the number of units required to break even, as well as the corresponding total revenue.
 
+Additionally, it generates a graph visualizing both the revenue and total costs as the number of units sold increases.
 
-La calculadora muestra el número de unidades necesarias para alcanzar el punto de equilibrio, así como el ingreso total correspondiente.
+## Features
 
-Además, genera un gráfico visualizando los ingresos y costos totales a medida que aumentan las unidades vendidas.
+- Automatic calculation of the break-even point.
+- Interactive graph displaying both revenue and total costs.
+- User-friendly and responsive interface.
+- Input validation to ensure correct values.
 
-## Características
+## Technologies Used
 
-- Cálculo automático del punto de equilibrio.
-- Visualización gráfica de los ingresos y costos a través de un gráfico interactivo.
-- Interfaz amigable y responsive.
-- Validaciones de entrada para garantizar que los valores sean correctos.
+- **HTML**: Structure of the page.
+- **CSS**: Visual styling using TailwindCSS.
+- **JavaScript**: Logic for calculations and handling interactivity.
+- **Chart.js**: Library for generating interactive graphs.
 
-## Tecnologías utilizadas
+## Usage
 
-- **HTML**: Estructura de la página.
-- **CSS**: Estilos visuales utilizando TailwindCSS.
-- **JavaScript**: Lógica de cálculo y manejo de interactividad.
-- **Chart.js**: Librería para generar gráficos interactivos.
+1. Enter the values for **selling price per unit**, **production cost per unit**, and **fixed cost** into the respective fields.
+2. Click the **Calculate** button.
+3. The result will show the number of units required to break even and the total revenue.
+4. A graph will be generated automatically, showing how revenue and total costs change as the number of units increases.
 
-## Uso
+## Contribution
 
-1. Ingresa los valores para el **precio de venta por unidad**, **costo de producción por unidad** y **costo fijo** en los campos correspondientes.
-2. Haz clic en el botón **Calcular**.
-3. El resultado mostrará el número de unidades necesarias para alcanzar el punto de equilibrio y el ingreso total.
-4. Un gráfico se generará automáticamente, mostrando cómo varían los ingresos y los costos totales en función del número de unidades.
+Contributions are welcome! If you have any suggestions or improvements, please open an *issue* or submit a *pull request*.
 
-## Contribución
+## Contact
 
-¡Contribuciones son bienvenidas! Si tienes alguna sugerencia o mejora, por favor abre un *issue* o un *pull request*.
-
-## Contacto
-
-Si tienes alguna pregunta o comentario, no dudes en contactarme:
+If you have any questions or comments, feel free to reach out:
 
 - **Email**: [garaven.camilo@gmail.com](mailto:garaven.camilo@gmail.com)
 - **GitHub**: [garaven](https://github.com/garaven)
 
 ---
 
-### Licencia
+### License
 
-Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
