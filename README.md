@@ -1,15 +1,58 @@
-**Creando una Calculadora de Punto de Equilibrio Intuitiva y Visual**
+# Calculadora de Punto de Equilibrio
 
-Objetivo: Transformar una simple calculadora de punto de equilibrio en una herramienta visual y amigable que guíe al usuario paso a paso en el cálculo y le presente los resultados de forma clara y concisa.
+![Captura de la pagina web](public/image.png)
+---
 
-Funcionalidades a implementar:
+Este proyecto es una **calculadora de punto de equilibrio** que permite calcular el punto de equilibrio de un producto en función de su costo de venta, costo de producción y costo fijo.
 
-**Formulario intuitivo:** Diseñar un formulario que solicite los datos necesarios al usuario (ingresos por unidad, costos variables por unidad, costos fijos totales) de manera clara y concisa.
+## Descripción
 
-**Validación de datos:** Implementar una validación para asegurar que los datos ingresados sean numéricos y positivos.
+La **calculadora de punto de equilibrio** es una herramienta que ayuda a los empresarios o emprendedores a determinar cuántas unidades deben vender para cubrir sus costos fijos. A partir de tres valores ingresados:
 
-**Cálculo:** Mostrar el resultado del cálculo del punto de equilibrio (en unidades y en valor monetario) De prefernencia si es en tiempo real a medida que el usuario ingresa los datos.
+1. **Precio de venta por unidad**: El precio al que se vende el producto.
+2. **Costo de producción por unidad**: El costo de producir una unidad del producto.
+3. **Costo fijo**: Los costos fijos que no dependen de la cantidad producida, como renta, sueldos, etc.
 
-**Gráfico visual:** Representar gráficamente el punto de equilibrio, utilizando una librería como Chart.js o D3.js. Esto ayudará al usuario a visualizar de forma más clara el concepto.
 
-**Diseño responsivo:** Asegurar que la aplicación se adapte correctamente a diferentes tamaños de pantalla.
+
+La calculadora muestra el número de unidades necesarias para alcanzar el punto de equilibrio, así como el ingreso total correspondiente.
+
+Además, genera un gráfico visualizando los ingresos y costos totales a medida que aumentan las unidades vendidas.
+
+## Características
+
+- Cálculo automático del punto de equilibrio.
+- Visualización gráfica de los ingresos y costos a través de un gráfico interactivo.
+- Interfaz amigable y responsive.
+- Validaciones de entrada para garantizar que los valores sean correctos.
+
+## Tecnologías utilizadas
+
+- **HTML**: Estructura de la página.
+- **CSS**: Estilos visuales utilizando TailwindCSS.
+- **JavaScript**: Lógica de cálculo y manejo de interactividad.
+- **Chart.js**: Librería para generar gráficos interactivos.
+
+## Uso
+
+1. Ingresa los valores para el **precio de venta por unidad**, **costo de producción por unidad** y **costo fijo** en los campos correspondientes.
+2. Haz clic en el botón **Calcular**.
+3. El resultado mostrará el número de unidades necesarias para alcanzar el punto de equilibrio y el ingreso total.
+4. Un gráfico se generará automáticamente, mostrando cómo varían los ingresos y los costos totales en función del número de unidades.
+
+## Contribución
+
+¡Contribuciones son bienvenidas! Si tienes alguna sugerencia o mejora, por favor abre un *issue* o un *pull request*.
+
+## Contacto
+
+Si tienes alguna pregunta o comentario, no dudes en contactarme:
+
+- **Email**: [garaven.camilo@gmail.com](mailto:garaven.camilo@gmail.com)
+- **GitHub**: [garaven](https://github.com/garaven)
+
+---
+
+### Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.

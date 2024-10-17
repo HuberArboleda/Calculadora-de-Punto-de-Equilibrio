@@ -1,19 +1,150 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
     <title>Calculadora de Punto de Equilibrio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="public/favicon.svg" type="image/svg+xml">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-    <h1>Calculadora de Punto de Equilibrio</h1>
-    <div class="form-group">
-        <label for="ingreso">Ingreso por unidad:</label>
-        <input type="number" id="ingreso" placeholder="Ingrese el ingreso por unidad">
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="min-h-screen flex flex-col pt-10 px-6 lg:px-12 lg:py-0 bg-slate-80 text-white relative selection:bg-violet-600 selection:text-white"
+    >
+      <div
+        class="lg:flex lg:flex-row lg:items-center lg:justify-between lg:h-screen max-w-screen-xl mx-auto"
+      >
+        <section class="max-w-full md:max-w-2xl lg:max-w-2xl">
+          <h1
+            class="lg:text-left text-center text-5xl font-bold mb-5 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-500 text-balance leading-[3.3rem]"
+          >
+            Calculadora de Punto de Equilibrio
+          </h1>
+          <p
+            class="lg:text-left text-2xl text-center mb-8 lg:mb-0 text-neutral-500 text-pretty md:text-lg lg:w-[85%]"
+          >
+            Calcula el <strong>punto de equilibrio de un producto</strong> en
+            función de su costo de venta, costo de producción y costo fijo.
+          </p>
+        </section>
+        <div
+          class="mx-auto flex flex-col p-10 lg:py-6 lg:p-8 rounded-3xl w-full lg:w-[80%] max-w-lg md:max-w-xl bg-neutral-50 text-violet-900 border border-violet-300 mb-10 lg:mb-0 shadow-md shadow-violet-200"
+        >
+
+
+          <label
+            class="mb-2 text-xl md:text-lg lg:text-base font-semibold"
+            for="precio-venta"
+            >Precio de venta por unidad:</label
+          >
+          <input
+            class="text-black px-3 py-2 text-lg md:text-base lg:text-base rounded-md border border-neutral-500 outline-violet-300 mb-8 lg:mb-6"
+            type="number"
+            id="precio-venta"
+            min="1"
+            placeholder="Ejemplo: $900"
+          />
+
+          <label
+            class="mb-2 text-xl md:text-lg lg:text-base font-semibold"
+            for="costo-produccion"
+            >Costo de producción por unidad:</label
+          >
+          <input
+            class="text-black px-3 py-2 text-lg md:text-base lg:text-base rounded-md border border-neutral-500 outline-violet-300 mb-8 lg:mb-6"
+            type="number"
+            id="costo-produccion"
+            min="1"
+            placeholder="Ejemplo: $450"
+          />
+
+          <label
+            class="mb-2 text-xl md:text-lg lg:text-base font-semibold"
+            for="costo-fijo"
+            >Costo fijo:</label
+          >
+          <input
+            class="text-black px-3 py-2 text-lg md:text-base lg:text-base rounded-md border border-neutral-500 outline-violet-300 mb-10 lg:mb-8"
+            type="number"
+            id="costo-fijo"
+            min="1"
+            placeholder="Ejemplo: $370000"
+          />
+          <button
+            class="border border-current rounded-md py-2 font-semibold text-white text-lg bg-gradient-to-r from-purple-400 to-violet-500 hover:opacity-80 duration-300 ease-in-out"
+            onclick="calcular()"
+          >
+            Calcular
+          </button>
+        </div>
+      </div>
+      <div class="bg-neutral-50 lg:mb-6 md:mb-4 rounded-md p-2">
+        <div
+          id="resultado"
+          class="text-neutral-600 text-center text-2xl font-semibold mb-6"
+        ></div>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="200"
+          height="200"
+          viewBox="0 0 130.24 160.604"
+          id="icon"
+          class="mx-auto m-36"
+        >
+          <path
+            d="M1.272 106.072c.92-9.112 7.505-19.658 13.453-25.01 5.947-5.353 26.161-12.17 37.206-13.668 11.046-1.498 45.279-3.25 58.731 1.338 13.453 4.588 16.639 16.217 16.462 26.093-.177 9.877-6.55 40.462-20.179 48.395-13.63 7.933-31.967 15.23-47.827 14.465-15.86-.765-27.117-3.027-39.65-15.612C6.937 129.49 1.273 106.072 1.273 106.072Z"
+            fill="transparent"
+            paint-order="markers stroke fill"
+          />
+          <path
+            d="M42.56 158.742c-.799-.298-4.604-2.028-8.458-3.843-11.548-5.44-20.45-14.106-26.757-26.049-3.334-6.31-7.112-21.372-7.318-25.1-.48-8.716 5.443-14.303 12.192-21.497 3.49-3.719 10.884-7.616 13.725-7.234 2.843.242.117 2.056-1.761 3.037C13.198 83.79 6.179 94.558 7.03 103.457c.766 7.998 12.251 15.385 26.42 16.993 4.467.507 6.213.442 6.272-.233.115-1.316-1.153-3.234-3.325-5.026-1.54-1.27-2.167-1.41-3.689-.816-2.287.892-3.198 1.93-2.871 3.27.144.59-.137.86-.646.625-1.422-.652-1.084-4.443.522-5.859 1.87-1.647 5.956-1.922 8.065-.543.912.597 2.278 2.014 3.035 3.149 1.282 1.92 1.573 2.023 4.197 1.475 3.711-.774 8.382.59 9.584 2.8l.928 1.707 6.692-.582c7.8-.68 25.725-4.382 31.508-6.508 9.5-3.492 24.998-14.551 28.043-20.01 2.692-4.828 1.95-9.893-2.244-15.302-6.037-7.787-23.624-11.828-43.564-10.01-7.024.641-11.03.084-10.323-1.438 1.532-3.3 12.901-5.104 26.186-4.156 16.049 1.145 25.686 4.63 31.77 11.492 4.51 5.084 6.12 9.701 6.573 18.84.429 8.668-.924 17.432-4.432 28.71-3.879 12.466-11.179 21.002-24.198 28.29-13.128 7.35-25.252 10.414-40.656 10.274-7.442-.067-15.8-.914-18.318-1.856zm29.192-4.014c8.834-1.214 17.303-4.065 27.327-9.2 14.023-7.183 20.69-17.76 25.273-40.099l1.062-5.173-5.205 4.495c-14.712 12.707-33.298 19.274-61.392 21.692-10.268.884-13.426.85-22.397-.243-11.483-1.398-16.337-2.906-23.553-7.316l-4.414-2.697 1.223 3.31c4.188 11.34 14.68 24.282 24.198 29.852 8.615 5.042 24.213 7.257 37.878 5.379zm-20.049-33.446c.847-.673-1.807-1.968-4.737-2.312-2.065-.242-3.73.082-5.026.978l-1.937 1.34 5.654.153c3.11.083 5.83.022 6.046-.158zm5.753-6.188c-.249-.313-2.71-.876-5.467-1.251-7.916-2.694-13.02-6.26-17.646-14.226l-3.022 2.808c-.96.892-2.07 3.167-2.552 4.968-.675 2.521-1.127 3.143-1.964 2.707-3.118-1.62-1.618-8.825 2.382-11.438l3.171-2.343c-3.796-12.174-3.2-23.368-2.008-36.593l-2.897-.204c-2.085-.147-3.091-.613-3.592-1.664-.588-1.234-.255-1.755 2.152-3.36 2.648-1.766 2.787-2.025 1.977-3.688-3.328-6.833-5.93-12.873-9.369-21.745-2.172-5.607-5.702-13.915-7.843-18.463-2.14-4.548-3.654-8.726-3.364-9.285 1.089-2.094 2.984-1.68 5.344 1.166 2.98 3.597 9.181 15.54 11.816 22.76 1.119 3.063 3.838 9.598 6.042 14.52 2.947 6.58 4.319 8.863 5.18 8.62 2.667-.75 4.682-.616 5.634.375 1.293 1.347 1.057 3.448-.503 4.47-1.64 1.074-.686 2.232 1.813 3.986 3.67 2.573 15.672 10.686 20.05 16.38 6.738 8.761 11.982 17.638 11.524 21.833-.104.96.363 1.95 1.073 2.27 2.915 1.31 4.319 2.563 4.912 4.386.93 2.859-.2 3.633-2.077 1.422-2.224-2.621-6.312-2.922-9.138-.672-1.922 1.53-2.072 1.943-1.607 4.427l.512 2.74-2.452-.279c-2.916-.33-4.548 1.012-4.89 4.023-.24 2.121-1.988 2.86-3.19 1.35zm-12.028-13.898c-6.582-8.357-8.863-11.62-10.677-19.612-.645-2.84-.978-5.753-1.59-8.326.395 9.895 1.65 19.516 6.217 25.743 3.07 4.084 8.89 9.518 11.2 9.78.498.056-1.82-3.357-5.15-7.585zm12.358 5.385c-.453-.8-3.167-5.307-6.03-10.014-7.584-12.472-10.09-17.525-13.544-27.303-2.774-7.855-3.08-8.399-3.01-5.334.12 5.08 1.716 13.569 3.558 18.92 2.384 6.925 8.806 16.87 13.988 21.663 4.384 4.054 6.704 5.006 5.038 2.068zm.243-7.545c-3.13-8.498-6.45-15.563-11.637-24.762-8.72-15.465-10.509-16.65-5.474-3.624 2.501 6.47 17.951 34.534 19.083 34.662.194.022-.692-2.802-1.972-6.276zm5.1-1.722c-1.629-7.078-7.507-18.91-13.386-26.944-4.387-5.995-5.695-6.007-1.678-.02 4.13 6.16 9.835 17.118 13.177 25.308 1.213 2.971 2.309 5.32 2.436 5.218.125-.1-.12-1.706-.549-3.568zm5.677-2.573c-.257-3.534-5.309-12.568-10.517-18.804-5.551-6.648-8.94-9.08-4.776-3.427 4.434 6.02 9.83 15.545 11.986 21.16 2.027 5.279 3.65 5.804 3.307 1.071zm26.63 5.198c-1.331-4.582-4.482-6.266-9.16-4.896-1.188.348-1.318-.05-.983-3.004.483-4.25-.355-6.93-2.584-8.267-2.498-1.499-4.166-1.513-6.526-.053-3.063 1.893-3.36.042-.376-2.333 5.358-4.266 12.982 0 13.323 7.47.134 2.931.304 3.16 2.56 3.416 1.33.15 3.201 1.049 4.16 1.996 1.728 1.708 1.747 1.71 2.376.303 1.234-2.76 5.317-4.736 8.94-4.324 4.25.482 7.608 4.104 6.849 7.387-.568 2.45-1.69 2.375-2.647-.177-1.639-4.376-5.379-5.464-8.966-2.608-1.436 1.143-2.669 3.034-3.214 4.929-1.09 3.782-2.68 3.85-3.752.162z"
+            fill="#c2c2c2"
+          />
+        </svg>
+        <div class="w-full h-auto">
+          <canvas
+            id="myChart"
+            class="w-full h-[350px] lg:h-[420px] hidden"
+          ></canvas>
+        </div>
+
+        <button
+          id="toTop"
+          class="absolute bottom-32 lg:bottom-20 right-10 z-10 p-4 bg-gradient-to-r from-purple-400 to-violet-500 rounded-full shadow-lg hover:scale-105 transform transition-all duration-300 ease-in-out"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            class="stroke-neutral-50"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-up"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 5l0 14" />
+            <path d="M16 9l-4 -4" />
+            <path d="M8 9l4 -4" />
+          </svg>
+        </button>
+      </div>
+      <footer class="fill-neutral-400 flex justify-between items-center gap-2 mt-4 mb-4">
+        <p class="text-neutral-500 mb-2">Created with 💜 by <a class="text-purple-600 font-semibold" href="https://github.com/garaven">garaven</a></p>
+        <div class="flex gap-2">
+          <a href="mailto:garaven.camilo@gmail.com" target="_blank" rel="noopener noreferrer">
+            <svg class="size-6 hover:fill-neutral-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  class="icon icon-tabler icons-tabler-filled icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" /><path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" /></svg>
+          </a>
+          <a href="http://github.com/garaven" target="_blank" rel="noopener noreferrer">
+            <svg class="size-6 hover:fill-neutral-600" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+        </div>
+      </footer>
     </div>
-    <button onclick="calcular()">Calcular</button>
-    <div id="resultado"></div>
-    <canvas id="myChart"></canvas>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
