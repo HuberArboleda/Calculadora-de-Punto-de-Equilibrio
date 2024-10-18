@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: white;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #374151;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+    color: black;
+    text-align: left;
+}
+
+.form-container p {
+    margin-bottom: 50px;
+    color: #969696;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+footer {
+    position: fixed;
+    bottom: 60px;
+    right: 190px;
+    font-size: 0.9rem;
+    color: #969696;
+    transition: all 0.3s ease;
+}
+
+
+.container {
+    background-color: white;
+    padding: 40px;
+    display: flex;
+    height: 500px;
+    flex-direction: row;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.form-container {
+    flex: 1;
+    margin-right: 20px; 
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #4b5563;
+}
+
+input[type="number"] {
+    width: 80%;
+    height: 21px;
+    padding: 12px;
+    padding-left: 16px;
+    font-size: 16px;
+    border: none; 
+    border-radius: 12px;
+    outline: 2px solid #e8e8e8;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    outline: 2px solid #313131;
+}
+
+/* Para eliminar boton de incremento y decremento */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+.info {
+    color: #898989;
+    background-color: transparent;
+    display: flex;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #969696;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 200px;
+    transition: ease 0.2s;
+}
+
+.info:hover {
+    transition: ease 0.2s;
+    color: #050505;
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+.result-chart-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.result {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    outline: 2px solid #e8e8e8;
+    transition: transform 0.2s; 
+}
+
+.result h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #00911b;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-label {
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.result-value {
+    font-size: 1.5rem;
+    color: #00911b;
+    font-weight: 700;
+}
+
+.chart-container {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+canvas {
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 690px;
+    max-height: 80%;
+    overflow-y: scroll;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.modal-content::-webkit-scrollbar {
+    display: none; /* Ocultar scrollbar en navegadores Webkit (Chrome, Safari) */
+}
+
+.modal h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.modal p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #374151;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #aaa;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.close:hover {
+    color: #000;
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+    .form-container {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .info {
+        width: 100%;
+    }
+
+    footer {
+        display: none;
+    }
+}

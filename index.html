@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Calculadora de punto de equilibrio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Calculadora de punto de equilibrio</h1>
+            <p>Calcula el punto de equilibrio de un negocio, con el ingreso de las unidades y el costo de las variables.</p>
+            <div class="input-group">
+                <label for="unitPrice">Ingreso por unidad</label>
+                <input type="number" id="unitPrice" placeholder="$ 900" step="0.01" min="0">
+            </div>
+            <div class="input-group">
+                <label for="variableCost">Costos variables por unidad</label>
+                <input type="number" id="variableCost" placeholder="$ 450" step="0.01" min="0">
+            </div>
+            <div class="input-group">
+                <label for="fixedCosts">Costos fijos totales</label>
+                <input type="number" id="fixedCosts" placeholder="$ 200.000" step="0.01" min="0">
+            </div>
+            <div>
+                <button class="info">Mas información</button>
+            </div>
+        </div>
+        <div class="result-chart-container">
+            <div class="result">
+                <h2>Resultados del punto de equilibrio</h2>
+                <div class="result-item">
+                    <span class="result-label">Unidades necesarias:</span>
+                    <span id="breakEvenUnits" class="result-value"></span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Ingresos necesarios:</span>
+                    <span id="breakEvenRevenue" class="result-value"></span>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="breakEvenChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>¿Qué es el punto de equilibrio?</h2>
+            <p>El punto de equilibrio es establecido a través de un cálculo que sirve para definir el momento en que los ingresos de una empresa cubren sus gastos fijos y variables, esto es, cuando logras vender lo mismo que gastas, no ganas ni pierdes, has alcanzado el punto de equilibrio.</p>
+            <h3>Ingreso por unidad</h3>
+            <ul>
+                <li>Este campo permite al usuario introducir el precio de venta de cada unidad del producto o servicio. Es esencial para determinar el total de ingresos generados por la venta de un determinado número de unidades.</li>
+                <li><strong>Ejemplo:</strong> Si vendes un producto a $900, este es el valor que colocarías aquí.</li>
+            </ul>
+            <h3>Costos variables por unidad</h3>
+            <ul>
+                <li>Este campo permite al usuario introducir los costos de venta de las variables del producto o servicio. Es esencial para determinar el total de ingresos generados por la venta de un determinado número de unidades.</li>
+                <li><strong>Ejemplo:</strong> Si fabricar cada producto te cuesta $450 en materiales y mano de obra, ese sería tu costo variable por unidad.</li>
+            </ul>
+            <h3>Costos fijos totales</h3>
+            <ul>
+                <li>Este campo permite al usuario introducir los costos fijos totales del negocio. Es esencial para determinar el total de ingresos generados por la venta de un determinado número de unidades.</li>
+                <li><strong>Ejemplo:</strong> Si el negocio tiene un costo fijo total de $200.000, este es el valor que colocarías aquí.</li>
+            </ul>
+
+            <h2>Cálculo del Punto de Equilibrio en Unidades</h2>
+            <p>Para encontrar el punto de equilibrio en unidades, se utiliza la siguiente fórmula:</p>
+            <p><strong>Punto de Equilibrio (unidades) = CF / (PV - CV)</strong></p>
+            <ul>
+                <li><strong>CF:</strong> Costos fijos.</li>
+                <li><strong>PV:</strong> Precio de venta por unidad.</li>
+                <li><strong>CV:</strong> Costo variable por unidad.</li>
+            </ul>
+            <h4>Ejemplo:</h4>
+            <p>Supongamos que tienes:</p>
+            <ul>
+                <li>Costos fijos (CF) = $10,000</li>
+                <li>Precio de venta por unidad (PV) = $50</li>
+                <li>Costo variable por unidad (CV) = $30</li>
+            </ul>
+            <p>Sustituyendo en la fórmula:</p>
+            <p><strong>Punto de Equilibrio (unidades) = 10,000 / (50 - 30) = 10,000 / 20 = 500 unidades</strong></p>
+            
+            <h2>Cálculo del Punto de Equilibrio en Ingresos</h2>
+            <p>Para calcular el punto de equilibrio en términos de ingresos, se utiliza la siguiente fórmula:</p>
+            <p><strong>Punto de Equilibrio (ingresos) = Punto de Equilibrio (unidades) × PV</strong></p>
+            <p>Usando el ejemplo anterior:</p>
+            <p><strong>Punto de Equilibrio (ingresos) = 500 unidades × 50 = 25,000 dólares</strong></p>
+            
+            <h3>Interpretación de Resultados</h3>
+            <ul>
+                <li><strong>Punto de Equilibrio en Unidades:</strong> Indica cuántas unidades necesitas vender para cubrir todos tus costos. Si vendes menos de esta cantidad, incurrirás en pérdidas; si vendes más, generarás ganancias.</li>
+                <li><strong>Punto de Equilibrio en Ingresos:</strong> Muestra cuánto dinero necesitas generar en ventas para no tener pérdidas. Este número es crucial para establecer objetivos de ventas y presupuestos.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Funcion para evitar valores negativos en los campos de entrada
+        function preventNegativeInput(input) {
+            input.addEventListener('input', function() {
+                if (this.value < 0) {
+                    this.value = 0;
+                }
+            });
+        }
+        
+        const inputs = ['unitPrice', 'variableCost', 'fixedCosts'];
+        inputs.forEach(id => preventNegativeInput(document.getElementById(id)));
+    </script>
+    <footer>Hecho por <a href="https://github.com/Gothsec">Oscar Hernandez</a></footer>
+</body>
+</html>
